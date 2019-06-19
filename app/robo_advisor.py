@@ -37,16 +37,16 @@ breakpoint()
 
 # get high price from each day
 high_prices =[]
+low_prices = []
 # maximum of all high prices
 for date in dates:
     high_price = tsd[date]["2. high"]
     high_prices.append(float(high_price))
+    low_price = tsd[date]["3. low"]
+    low_prices.append(float(low_price))
 recent_high = max(high_prices)
-
-
-# minimum of all low prices
-low_prices =[]
 recent_low = min(low_prices)
+
 
 
 
