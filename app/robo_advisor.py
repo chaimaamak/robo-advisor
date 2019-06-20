@@ -1,9 +1,13 @@
 # app/robo_advisor.py
 
+import json
+import csv
+import os
+
+import datetime
 import requests
 import dotenv
-import json
-import datetime
+
 
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)
@@ -48,18 +52,36 @@ recent_high = max(high_prices)
 recent_low = min(low_prices)
 
 
-
-
-
 #
 # INFO OUTPUTS
 #
+
+
+csv_file_path = os.path.join(os.path.dirname(__file__), "..", "data", "prices.csv")
+
+csv_headers = ["timestamp", "open", "high", "low", "close", "volume"]
+
+with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writing"
+    writer = csv.DictWriter(csv_file, fieldnames=csv_headers)
+    writer.writeheader() # uses fieldnames set above
+    
+    #looping 
+    writer.writerow({
+        "timestamp": "TODO"
+        "open": "TODO"
+        "high": "TODO"
+        "low": "TODO"
+        "close":"TODO"
+        "volume": "TODO"
+    })
+
+
 
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
 print("-------------------------")
 print("REQUESTING STOCK MARKET DATA...")
-print(f"REQUEST AT:" + now.strftime("%Y-%m-%d %H:%M:%S"))
+print(f"REQUEST AT:" now.strftime("%Y-%m-%d %H:%M:%S"))
 print("-------------------------")
 print(f"LATEST DAY: {last_refreshed}")
 print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
@@ -68,6 +90,8 @@ print(f"RECENT LOW: {to_usd(float(recent_low))}")
 print("-------------------------")
 print("RECOMMENDATION: BUY!")
 print("RECOMMENDATION REASON: TODO")
+print("-------------------------")
+print(f"WRITING DATA TO CSV: {csv_file_path}"")   # use csv module
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
