@@ -2,8 +2,6 @@
 
 This program is aimed at helping the user access current stock data by entering a ticker symbol. The ticker symbol must be valid. The information displayed is for recent highs and lows and close stock prices. There is also a recommendation portion to either buy or sell based on comparison with the recent average prices.
 
-instructions to help someone else install, setup, and run your program. This includes instructions for installing package dependencies, for example using Pip. It also includes instructions for setting an environment variable named ALPHAVANTAGE_API_KEY (see "Security Requirements" section below)
-
 
 # Prerequisites
 
@@ -13,33 +11,32 @@ instructions to help someone else install, setup, and run your program. This inc
 
 # Installation
 
-Create a new repository on GitHub.com by the name of "Robo-Advisor Project" and clone or download the resulting repository onto your computer or to GitHub Desktop application. Then navigate there from the command line:
+Create a new repository on GitHub.com by the name of "Robo-Advisor Project" and clone or download the resulting repository onto your computer or to GitHub Desktop application. Or fork this repository under your own control. Then navigate there from the command line:
 
 ```sh
-cd ~/Desktop/robo-advisor project  # or use the 
+cd ~/Desktop/robo-advisor project  # or use the file path where you have saved the python file
 ```
 
 > NOTE: subsequent usage and testing commands assume you are running them from the repository's root directory.
 
-Use Anaconda to create and activate a new virtual environment, perhaps called "shopping_cart-env":
+Use Anaconda to create and activate a new virtual environment, perhaps called "roboadvisor-env":
 
 ```sh
-conda create -n shopping_cart-env python=3.7 # (first time only)
-conda activate shopping_cart-env
+conda create -n roboadvisor-env python=3.7 # (first time only)
+conda activate roboadvisor-env
 ```
 
 From inside the virtual environment, install package dependencies:
 
 ```sh
 pip install -r requirements.txt
-pip install pytest
-pip install python-dotenv
 ```
 
 # Setup
 
-1. Describe setup required for email receipts - SendGrid guidelines
-2. Setup a .env file for the "secret" keys
+Before using or developing this application, take a moment to [obtain an AlphaVantage API Key](https://www.alphavantage.co/support/#api-key) (e.g. "abc123").
+
+After obtaining the key, update the .env file with your secret key and ensure this .env file is ignored under the .gitignore file
 
 
 ## Usage
@@ -49,18 +46,6 @@ Run the recommendation script:
 ```py
 python app/robo_advisor.py
 ```
-
-Enter items from cart that you wish to buy or checkout when prompted to do so.
-
-When finished enter "DONE" in the prompt. 
-
-The program will display the total cost including tax and will prompt the user to "ACCEPT TRANSACTION" or "REJECT TRANSACTION." 
-
-If the user enters "ACCEPT TRANSACTION", they will be prompted to "PRINT HARDCOPY RECEIPT" or "EMAIL RECEIPT."
-    "PRINT HARD COPY RECEIPT" will display the receipt on the command line
-    "EMAIL RECEIPT" will prompt the user to enter their email address and will send a soft copy to that email address and complete the transaction.
-
-If the user enters "REJECT TRANSACTION", they will be prompted to check the list of items and make modifcations, either add or delete some items. Once complete the same original prompt will appear "ACCEPT TRANSACTION" or "REJECT TRANSACTION." 
 
 
 ## Testing
@@ -74,7 +59,7 @@ pip install pytest
 Run tests:
 
 ```sh
-pytest
+pytest  # no automated test configured in this code
 
 # or, skipping tests that issue network requests:
 CI=true pytest
