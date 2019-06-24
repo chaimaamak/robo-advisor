@@ -1,6 +1,6 @@
 # Robo-Advisor Project
 
-This program Automatic stock trading recommendations
+This program is aimed at helping the user access current stock data by entering a ticker symbol. The ticker symbol must be valid. The information displayed is for recent highs and lows and close stock prices. There is also a recommendation portion to either buy or sell based on comparison with the recent average prices.
 
 instructions to help someone else install, setup, and run your program. This includes instructions for installing package dependencies, for example using Pip. It also includes instructions for setting an environment variable named ALPHAVANTAGE_API_KEY (see "Security Requirements" section below)
 
@@ -13,10 +13,10 @@ instructions to help someone else install, setup, and run your program. This inc
 
 # Installation
 
-Create a new repository on GitHub.com by the name of "shopping-cart-project" and clone or download the resulting repository onto your computer or to GitHub Desktop application. Then navigate there from the command line:
+Create a new repository on GitHub.com by the name of "Robo-Advisor Project" and clone or download the resulting repository onto your computer or to GitHub Desktop application. Then navigate there from the command line:
 
 ```sh
-cd ~/Desktop/shopping-cart-project
+cd ~/Desktop/robo-advisor project  # or use the 
 ```
 
 > NOTE: subsequent usage and testing commands assume you are running them from the repository's root directory.

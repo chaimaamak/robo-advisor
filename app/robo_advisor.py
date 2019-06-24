@@ -14,6 +14,9 @@ load_dotenv()
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)
 
+start_date = datetime.datetime.now()
+format_start_date = start_date.strftime("%Y-%m-%d %I:%M %p")
+
 #
 # INFO INPUTS
 #
@@ -29,6 +32,8 @@ while True:
 
     if "Error" in response.text:
         print("This Symbol is Invalid. Please Try Again!")
+        
+    else:
         break
 
 #print (type(response)) #> class 'request.models.Response'>
@@ -99,7 +104,7 @@ print("-------------------------")
 print(f"SELECTED SYMBOL: {symbol}")
 print("-------------------------")
 print("REQUESTING STOCK MARKET DATA...")
-print(f"REQUEST AT: {now.strftime("%Y-%m-%d %H:%M:%S")}")
+print("REQUEST AT:" + format_start_date)
 print("-------------------------")
 print(f"LATEST DAY: {last_refreshed}")
 print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
@@ -112,11 +117,13 @@ print("-------------------------")
 #
 
 if average_close > float(latest_close):
+    print(f"AVERAGE CLOSE: {to_usd(float(average_close))}")
     print("RECOMMENDATION: BUY!")
     print("RECOMMENDATION REASON: The Most Recent Close Price is Lower Than The Average Close Price")
 else:
+    print(f"AVERAGE CLOSE: {to_usd(float(average_close))}")
     print("RECOMMENDATION: SELL!")
-    print("RECOMMENDATION REASON: The Average Close Price is Lower Than The Most Recent Close Price. Check Again Tomorrow!")
+    print("RECOMMENDATION REASON: The Average Close Price is Lower Than The Most Recent Close Price")
 
 print("-------------------------")
 print(f"WRITING DATA TO CSV: {csv_file_path}")   # use csv module
