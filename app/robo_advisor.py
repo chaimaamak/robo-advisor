@@ -113,10 +113,10 @@ print("-------------------------")
 
 if average_close > float(latest_close):
     print("RECOMMENDATION: BUY!")
-    print("RECOMMENDATION REASON: The average close price is greater than the most recent close price")
+    print("RECOMMENDATION REASON: The Most Recent Close Price is Lower Than The Average Close Price")
 else:
     print("RECOMMENDATION: SELL!")
-    print("RECOMMENDATION REASON: The stock is over valued. The average close price is lower than the most recent close price")
+    print("RECOMMENDATION REASON: The Average Close Price is Lower Than The Most Recent Close Price. Check Again Tomorrow!")
 
 print("-------------------------")
 print(f"WRITING DATA TO CSV: {csv_file_path}")   # use csv module
